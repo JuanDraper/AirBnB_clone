@@ -9,8 +9,16 @@ from cmd import Cmd
 class BaseModel:
     """ class"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """init"""
+        if kwargs is not None and kwargs != {}:
+            for i in kwargs.keys():
+                self.__dict__[i] = kwargs[i]
+                if i == 'created_at' or i == 'updated_at':
+                    dateFormat = '%Y-%m-%dT%H:%M:%S.%f'
+                    self.__dict__[i] = datetime.strptime(kwargs[i], dateFormat)
+                    return
+ 
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
@@ -30,3 +38,5 @@ class BaseModel:
         newDict["created_at"] = newDict["created_at"].isoformat()
         newDict["updated_at"] = newDict["updated_at"].isoformat()
         return newDict
+
+    
