@@ -22,7 +22,7 @@ class BaseModel:
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
-
+        models.storage.new(self)
     def __str__(self):
         """ returns the printable of [ class name], (self.id) and self.__dict"""
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
@@ -30,7 +30,8 @@ class BaseModel:
     def save(self):
         """Save"""
         self.updated_at = datetime.now()
-	
+        models.storage.save()
+
     def to_dict(self):
         """dictionary with kew/value of dict"""
         newDict = self.__dict__.copy()
