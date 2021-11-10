@@ -63,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, args):
         """given an instance name and id, it will ve eliminated"""
-	args = shlex.split(args)
+        args = shlex.split(args)
         if args == []:
             print("** class name missing **")
         elif args[0] not in ["BaseModel", "User", "Place", "State",
