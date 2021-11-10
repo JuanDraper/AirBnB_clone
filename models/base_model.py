@@ -17,11 +17,12 @@ class BaseModel:
                 if i == 'created_at' or i == 'updated_at':
                     dateFormat = '%Y-%m-%dT%H:%M:%S.%f'
                     self.__dict__[i] = datetime.strptime(kwargs[i], dateFormat)
-                    return
- 
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+
         models.storage.new(self)
     def __str__(self):
         """ returns the printable of [ class name], (self.id) and self.__dict"""
