@@ -5,12 +5,15 @@ from os.path import isfile
 classes = { "BaseModel": BaseModel}
 
 class FileStorage:
-    """serializes instances to a JSON file & deserializes back to instances"""
+    """serializes and deserializes json"""
 
-    # string - path to the JSON file
     __file_path = "file.json"
-    # dictionary - empty but will store all objects by <class name>.id
     __objects = {}
+    
+    def init(self, file__path=None):
+        """constructor"""
+        if file__path is not None:
+            self.__file_path = file__path
 
     def all(self):
         """returns the dictionary __objects"""
@@ -24,19 +27,20 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file(path: __file_path)"""
-        with open(self.__file_path, 'w+') as f:
-            json.dump({k: v.to_dict() for k, v in self.__objects.items()
-                       }, f)
+        jso = {}
+        for k, v in self.__objects.items():
+            jso[k] = v.to_dict()
+        with open(self.__file_path, "w", encoding="UTF-8") as f:
+            json.dump(jso, f) 
 
     def reload(self):
-        """deserializes the JSON file to __objects, if the JSON
-        file exists, otherwise nothing happens)
-        """
+        """deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, 'r') as f:
-                dict = json.loads(f.read())
-                for value in dict.values():
-                    cls = value["__class__"]
-                    self.new(eval(cls)(**value))
+                dic = json.loads(f.read())
+                for k, v in dic.items():
+                    cls = k.split('.')[0]
+                    if cls in classes:
+                        self._objects[k] = classes[cls](**v)
         except Exception:
             pass 
