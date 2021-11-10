@@ -1,6 +1,6 @@
 import json
 from ..base_model import BaseModel
-from os.path import isfile
+
 
 classes = { "BaseModel": BaseModel}
 
@@ -30,7 +30,7 @@ class FileStorage:
         jso = {}
         for k, v in self.__objects.items():
             jso[k] = v.to_dict()
-        with open(self.__file_path, "w", encoding="UTF-8") as f:
+        with open(self.__file_path, "w") as f:
             json.dump(jso, f) 
 
     def reload(self):
