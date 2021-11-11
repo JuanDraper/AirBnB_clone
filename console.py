@@ -17,6 +17,8 @@ class HBNBCommand(cmd.Cmd):
     """console class"""
 
     prompt = "(hbnb)"
+    classes = ["BaseModel", "User", "City", "Review", "Place",
+               "State", "Amenity"]
 
     def do_quit(self, args):
         """command that quits program"""
@@ -35,8 +37,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("**class name missing**")
-        elif args[0] not in ["BaseModel", "User", "City", "Review", "Place",
-                             "State", "Amenity"]:
+        elif args[0] not in classes:
             print("**class doesn´t exist**")
         else:
             models.storage.reload()
@@ -49,8 +50,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("**class name missing**")
-        elif args[0] not in ["BaseModel", "User", "City", "Review", "Place",
-                             "State", "Amenity"]:
+        elif args[0] not in classes:
             print("**class doesn´t exist**")
         elif len(args) == 1:
             print("**instance id is missing**")
@@ -67,8 +67,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args == []:
             print("** class name missing **")
-        elif args[0] not in ["BaseModel", "User", "Place", "State",
-                             "City", "Amenity", "Review"]:
+        elif args[0] not in classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -80,6 +79,11 @@ class HBNBCommand(cmd.Cmd):
                     del(instances[i])
                     return
             print("**no instance found**")
+
+            def do_all(self, args):
+                """prints the string representation of all instances"""
+                args = shlex.split(args)
+                i
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
