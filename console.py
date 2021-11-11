@@ -83,7 +83,21 @@ class HBNBCommand(cmd.Cmd):
             def do_all(self, args):
                 """prints the string representation of all instances"""
                 args = shlex.split(args)
-                i
+                if args ==[]:
+                    models.storage.reload()
+                    _list = []
+                    for i, obj in models.storage.all().items():
+                        _list.append(obj.__str__())
+                    print(_list)
+                elif args[0] not in classes:
+                    print("**class doesn't exist**")
+                else:
+                    models.storage.reload()
+                    _list = []
+                    for i, obj in models.storage.all().item():
+                        if obj.__class__.__name__ == args[0]:
+                            _list.append(obj.__str__())
+                    print(_list)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
