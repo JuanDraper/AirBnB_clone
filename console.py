@@ -77,27 +77,40 @@ class HBNBCommand(cmd.Cmd):
             for i, obj in instances.items():
                 if obj.id == args[1] and obj.__class__.__name__ == args[0]:
                     del(instances[i])
+                    models.storage.save()
                     return
             print("**no instance found**")
 
-            def do_all(self, args):
-                """prints the string representation of all instances"""
-                args = shlex.split(args)
-                if args ==[]:
-                    models.storage.reload()
-                    _list = []
-                    for i, obj in models.storage.all().items():
-                        _list.append(obj.__str__())
-                    print(_list)
-                elif args[0] not in classes:
+    def do_all(self, args):
+        """prints the string representation of all instances"""
+        args = shlex.split(args)
+        if args ==[]:
+            models.storage.reload()
+             _list = []
+            for i, obj in models.storage.all().items():
+                 _list.append(obj.__str__())
+             print(_list)
+        elif args[0] not in classes:
                     print("**class doesn't exist**")
-                else:
-                    models.storage.reload()
-                    _list = []
-                    for i, obj in models.storage.all().item():
-                        if obj.__class__.__name__ == args[0]:
-                            _list.append(obj.__str__())
-                    print(_list)
+        else:
+             models.storage.reload()
+            _list = []
+            for i, obj in models.storage.all().item():
+                if obj.__class__.__name__ == args[0]:
+                    _list.append(obj.__str__())
+            print(_list)
+
+    def do_update(self, args):
+        args = shlex.split(args)
+        if args == []:
+            print("**class name missing**")
+        elif args[0] not in classes:
+            print("**class doesn't exist**")
+        elif len(args) == 1:
+            print("**instance id missing**")
+
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
