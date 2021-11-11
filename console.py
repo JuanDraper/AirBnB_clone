@@ -12,14 +12,14 @@ from models.review import Review
 from models.state import State
 from models.base_model import BaseModel
 
+classes = ["BaseModel", "User", "City", "Review", "Place",
+            "State", "Amenity"]
 
 class HBNBCommand(cmd.Cmd):
     """console class"""
 
     prompt = "(hbnb)"
-    classes = ["BaseModel", "User", "City", "Review", "Place",
-               "State", "Amenity"]
-
+    
     def do_quit(self, args):
         """command that quits program"""
         return True
@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             models.storage.reload()
             for i, obj in models.storage.all().items():
-                if obj.id == arg[1] and obj.__class__.__name__ == arg[0]:
+                if obj.id == args[1] and obj.__class__.__name__ == args[0]:
                     print(obj.__str__())
                     return
             print("**no instance found**")
