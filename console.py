@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             models.storage.reload()
             _list = []
-            for i, obj in models.storage.all().item():
+            for i, obj in models.storage.all().items():
                 if obj.__class__.__name__ == args[0]:
                     _list.append(obj.__str__())
             print(_list)
@@ -108,9 +108,25 @@ class HBNBCommand(cmd.Cmd):
             print("**class doesn't exist**")
         elif len(args) == 1:
             print("**instance id missing**")
-
-
-
+        else:
+            models.storage.reload()
+            instances = models.storage.all()
+            for i, obj in instances.items():
+                if obj.id == args[1] and obj.__class__.__name__ == args[0]:
+                    if len(args) == 2:
+                        print("**attribute name missing**")
+                        return
+                    elif len(args) == 3:
+                        print("**value missing**")
+                        return
+                    else:
+                        narg = args[3]
+                        if hasattr(obj, str(args[2])):
+                            narg = (type(getattr(obj, args[2])))(args[3])
+                        obj.__dict__[args[2]] = narg
+                        models.storage.save()
+                        return
+            print("**no instance found**")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
