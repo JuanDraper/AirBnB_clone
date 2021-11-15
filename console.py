@@ -86,14 +86,14 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args ==[]:
             models.storage.reload()
-            _list = []
+             _list = []
             for i, obj in models.storage.all().items():
-                _list.append(obj.__str__())
-            print(_list)
+                 _list.append(obj.__str__())
+             print(_list)
         elif args[0] not in classes:
                     print("**class doesn't exist**")
         else:
-            models.storage.reload()
+             models.storage.reload()
             _list = []
             for i, obj in models.storage.all().items():
                 if obj.__class__.__name__ == args[0]:
