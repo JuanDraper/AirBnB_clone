@@ -1,0 +1,143 @@
+[33mcommit f24ae7afe6fba2a7cb5c57aa760204ce21f3575d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: juandraper <e146613@gmail.com>
+Date:   Sun Nov 14 16:25:31 2021 -0800
+
+    fixing base_model
+
+[33mcommit bdf96743e6988208121b34be89f79408d3dd1ed1[m
+Author: juandraper <e146613@gmail.com>
+Date:   Thu Nov 11 10:00:55 2021 -0800
+
+    update added, lots of suffering
+
+[33mcommit 1b9fd618ae2c37b5bda70e945975370df366f9e2[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Thu Nov 11 17:22:03 2021 +0000
+
+    Correction
+
+[33mcommit 1c3137929116ec9fefbe404f05450ec8d03efe3d[m
+Author: juandraper <e146613@gmail.com>
+Date:   Thu Nov 11 09:17:48 2021 -0800
+
+    fixing destroy in console
+
+[33mcommit c55d211c184f0335ea3075939267c3383d805a89[m
+Author: juandraper <e146613@gmail.com>
+Date:   Thu Nov 11 08:51:05 2021 -0800
+
+    added do_all in console
+
+[33mcommit 1a820bb39cfb59ac82ee3087bc2d834b1f914c6b[m
+Author: juandraper <e146613@gmail.com>
+Date:   Thu Nov 11 06:52:44 2021 -0800
+
+    more fixing on console
+
+[33mcommit d9920f8d1e155328c9f1c48a7ecf635097f25532[m
+Author: juandraper <e146613@gmail.com>
+Date:   Thu Nov 11 06:31:47 2021 -0800
+
+    fixing reutilization issues
+
+[33mcommit 2d34e9fb732807b46dff5d30842e720767774466[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Wed Nov 10 19:21:12 2021 +0000
+
+    PEP8 compilance for console.py
+
+[33mcommit 60acb099117f502c40880d461e37277b1df89441[m
+Author: juandraper <e146613@gmail.com>
+Date:   Wed Nov 10 10:02:39 2021 -0800
+
+    fixing console indentantion line 66
+
+[33mcommit 4ae007dc33d2b154986541a25c81772c4349a996[m
+Author: juandraper <e146613@gmail.com>
+Date:   Wed Nov 10 10:00:39 2021 -0800
+
+    console.py
+
+[33mcommit 50e4f6cca84deb57080484abbc93fd749502050c[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Wed Nov 10 16:44:34 2021 +0000
+
+    Added classes to file_storage for serialization/deserialization
+
+[33mcommit a046d1815eca4e0219ef610dece699d2b2672936[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Wed Nov 10 16:43:13 2021 +0000
+
+    Added new classes
+
+[33mcommit fd34642f240824e2958c93a4ba1c8b26b3bf61ac[m
+Author: juandraper <e146613@gmail.com>
+Date:   Wed Nov 10 08:00:17 2021 -0800
+
+    fixing file storage reload final cut
+
+[33mcommit 86d8563693e4fc0c6325fe533e99e667e716339e[m
+Author: juandraper <e146613@gmail.com>
+Date:   Wed Nov 10 07:55:34 2021 -0800
+
+    fixing base model
+
+[33mcommit a449cce779b776d083ddbc88b6b3e138d55d5811[m
+Author: juandraper <e146613@gmail.com>
+Date:   Wed Nov 10 06:07:58 2021 -0800
+
+    fixing the reload on the fileStorage
+
+[33mcommit 48a67c1943f46dd99081bce0d4fa136fa89c6f22[m
+Author: juandraper <e146613@gmail.com>
+Date:   Mon Nov 8 16:56:22 2021 -0800
+
+    more fixing in FileStorage
+
+[33mcommit 3bef60fdf5e0ffe5bc561417c4ee33c7611fa8fc[m
+Author: juandraper <e146613@gmail.com>
+Date:   Mon Nov 8 16:55:15 2021 -0800
+
+    lots of fixing
+
+[33mcommit 4d9c85d3672c99d6f0de8c85608c7106def44061[m
+Author: juandraper <e146613@gmail.com>
+Date:   Mon Nov 8 14:42:10 2021 -0800
+
+    base_model.py init w/kwargs
+
+[33mcommit cfe35865d37a9fd5e279877b02dda478d4649821[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Mon Nov 8 16:41:38 2021 +0000
+
+    Completed task
+
+[33mcommit 84d89d335b57056c0621bf65922555dbfd9063c4[m
+Author: juandraper <e146613@gmail.com>
+Date:   Mon Nov 8 08:29:56 2021 -0800
+
+    fixing indentantion base_model
+
+[33mcommit 59a4ee14012b0998aac070b53779b3b92ac6e4a5[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Mon Nov 8 16:26:53 2021 +0000
+
+    Modified basemodel
+
+[33mcommit b1c299ed22632a02de676af489a04b2f9348b245[m
+Author: juandraper <e146613@gmail.com>
+Date:   Mon Nov 8 08:24:57 2021 -0800
+
+    __init__.py
+
+[33mcommit 6dca8b8d9fb9e964b65fb25bbc41f927cd2d80b5[m
+Author: juandraper <e146613@gmail.com>
+Date:   Mon Nov 8 07:57:30 2021 -0800
+
+    base_model.py creation
+
+[33mcommit f7fcae62b5ad1a158b83fa927652be2d9a1f581a[m
+Author: Andres Ortiz <3283@holbertonschool.com>
+Date:   Mon Nov 8 15:32:26 2021 +0000
+
+    First Commit
