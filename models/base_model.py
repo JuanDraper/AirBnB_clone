@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module Base Model"""
+"""Base Model"""
 
 from uuid import uuid4
 from datetime import datetime
@@ -8,10 +8,10 @@ from cmd import Cmd
 
 
 class BaseModel:
-    """Class BaseModel"""
+    """Class"""
 
     def __init__(self, *args, **kwargs):
-        """Constructor init"""
+        """ init"""
 
         if kwargs is not None and kwargs != {}:
             for k in kwargs.keys():
@@ -27,7 +27,7 @@ class BaseModel:
         models.storage.new(self)
 
     def __str__(self):
-        """Return: [<class name>] (<self.id>) <self.__dict__>"""
+        """returns the printable of [class name].(self.id) and self_dict"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
@@ -38,13 +38,13 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """Returns a dictionary with all keys/values of __dict__."""
+        """dictionary with kew/value of dict"""
 
-        new_dict = self.__dict__.copy()
-        new_dict["__class__"] = self.__class__.__name__
-        new_dict["created_at"] = new_dict["created_at"].isoformat()
-        new_dict["updated_at"] = new_dict["updated_at"].isoformat()
-        return new_dict
+        newDict = self.__dict__.copy()
+        newDict["__class__"] = self.__class__.__name__
+        newDict["created_at"] = new_dict["created_at"].isoformat()
+        newDict["updated_at"] = new_dict["updated_at"].isoformat()
+        return newDict
 
     @classmethod
     def all(cls):
@@ -55,11 +55,11 @@ class BaseModel:
     def count(cls):
         """Count instances of a class."""
         instances = models.storage.all()
-        counter = 0
-        for key, val in instances.items():
-            if(val.__class__.__name__ == cls.__name__):
-                counter += 1
-        print(counter)
+        c = 0
+        for k, v in instances.items():
+            if(v.__class__.__name__ == cls.__name__):
+                c += 1
+        print(c)
         return "\n"
 
     @classmethod
@@ -76,13 +76,13 @@ class BaseModel:
     def update(cls, id="", attr="", val=""):
         """Updates an instance of a class."""
         if id != "" and type(attr) is dict:
-            for ins, obj in models.storage.all().items():
+            for i, obj in models.storage.all().items():
                 if obj.__class__.__name__ == cls.__name__ and obj.id == id:
-                    for key, value in attr.items():
-                        new_arg = value
-                        if hasattr(obj, key):
-                            new_arg = (type(getattr(obj, key)))(value)
-                        obj.__dict__[key] = new_arg
+                    for k, v in attr.items():
+                        new_arg = v
+                        if hasattr(obj, k):
+                            new_arg = (type(getattr(obj, k)))(v)
+                        obj.__dict__[k] = new_arg
                         models.storage.save()
                     return "\n"
             return "update " + cls.__name__ + " " + id
