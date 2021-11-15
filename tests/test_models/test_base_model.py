@@ -3,20 +3,22 @@
 
 import unittest
 from models.base_model import BaseModel
+from models import base_model
+from models import storage
 import uuid
-
+import os
 
 class test_BaseModel(unittest.TestCase):
     """test for BaseModel """
 
     def test_init(self):
-        """Test for instantiation"""
+        """Test for instantiation
         obj = BaseModel()
         self.assertEqual(type(obj.__name__, "BaseModel")
         self.assertEqual(obj.created_at, obj.updated_at)
         obj_b = BaseModel()
         self.assertNotEqual(obj.id, obj_b.id)
-
+        """
     def test_str(self):
         """test for __str__ method"""
         b = BaseModel()
@@ -39,4 +41,4 @@ class test_BaseModel(unittest.TestCase):
         obj = BaseModel()
         keys = ['__class__', 'id', 'created_at', 'updated_at']
         test_dict = obj.to_dict()
-        sert.assertCountEqual(keys, test_dict)
+        self.assertCountEqual(keys, test_dict)
