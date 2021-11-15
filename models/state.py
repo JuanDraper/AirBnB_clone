@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Will define a new class for States"""
 
+
 from models.base_model import BaseModel
+
 
 class State(BaseModel):
     """Class State that inherits from BaseModel"""

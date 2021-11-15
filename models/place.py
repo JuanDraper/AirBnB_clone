@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """Will define a new class for Cities"""
 
+
 from models.base_model import BaseModel
+
 
 class Place(BaseModel):
     """Class Place that inherits from BaseModel"""

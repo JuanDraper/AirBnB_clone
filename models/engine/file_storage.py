@@ -8,15 +8,16 @@ from ..place import Place
 from ..review import Review
 
 
-classes = { "BaseModel": BaseModel, "User": User, "State": State, "City":
-            City, "Amenity": Amenity, "Place": Place, "Review": Review}
+classes = {"BaseModel": BaseModel, "User": User, "State": State, "City":
+           City, "Amenity": Amenity, "Place": Place, "Review": Review}
+
 
 class FileStorage:
     """serializes and deserializes json"""
 
     __file_path = "file.json"
     __objects = {}
-    
+
     def init(self, file__path=None):
         """constructor"""
         if file__path is not None:
@@ -38,7 +39,7 @@ class FileStorage:
         for k, v in self.__objects.items():
             jso[k] = v.to_dict()
         with open(self.__file_path, "w") as f:
-            json.dump(jso, f) 
+            json.dump(jso, f)
 
     def reload(self):
         """deserializes the JSON file to __objects"""
@@ -50,4 +51,4 @@ class FileStorage:
                     if cls in classes:
                         self._objects[k] = classes[cls](**v)
         except Exception:
-            pass 
+            pass
