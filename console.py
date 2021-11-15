@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(args)
         if args ==[]:
             models.storage.reload()
-             _list = []
+            _list = []
             for i, obj in models.storage.all().items():
                  _list.append(obj.__str__())
              print(_list)
