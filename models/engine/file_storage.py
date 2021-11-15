@@ -8,8 +8,8 @@ from ..place import Place
 from ..review import Review
 
 
-classes = {"BaseModel": BaseModel, "User": User, "State": State, "City":
-           City, "Amenity": Amenity, "Place": Place, "Review": Review}
+#classes = {"BaseModel": BaseModel, "User": User, "State": State, "City":
+#           City, "Amenity": Amenity, "Place": Place, "Review": Review}
 
 
 class FileStorage:
@@ -47,8 +47,9 @@ class FileStorage:
             with open(self.__file_path, 'r') as f:
                 dic = json.loads(f.read())
                 for k, v in dic.items():
-                    cls = k.split('.')[0]
-                    if cls in classes:
-                        self._objects[k] = classes[cls](**v)
+                    nObj = eval(v['__class__'])(**v)
+                   # cls = k.split('.')[0]
+                   # if cls in classes:
+                    self._objects[k] = nObj
         except Exception:
             pass
