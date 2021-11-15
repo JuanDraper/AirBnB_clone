@@ -6,6 +6,7 @@ from datetime import datetime
 import models
 from cmd import Cmd
 
+
 class BaseModel:
     """ class"""
 
@@ -24,9 +25,11 @@ class BaseModel:
             self.updated_at = self.created_at
 
         models.storage.new(self)
+
     def __str__(self):
-        """ returns the printable of [ class name], (self.id) and self.__dict"""
-        return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        """ returns the printable of [ class name],(self.id) and self.__dict"""
+        return ("[{}] ({}) {}".format(self.__class__.__name__,
+                self.id, self.__dict__))
 
     def save(self):
         """Save"""
@@ -40,5 +43,3 @@ class BaseModel:
         newDict["created_at"] = newDict["created_at"].isoformat()
         newDict["updated_at"] = newDict["updated_at"].isoformat()
         return newDict
-
-    
