@@ -1,64 +1,31 @@
 #!/usr/bin/python3
-"""Unittestl"""
+"""Test Model for BaseModel Class"""
 
 import unittest
 from models.base_model import BaseModel
-from models import storage
-import os
 import uuid
 
 
-class Test_BaseModel(unittest.TestCase):
-    """tes """
+class test_BaseModel(unittest.TestCase):
+    """test for BaseModel """
 
-    def test_setUp(self):
-        """ tests"""
-        try:
-            os.remove("file.json")
-        except Exception:
-            pass
-
-    def test_tearDown(self):
-        """" tests"""
-        try:
-            os.remove("file.json")
-        except Exception:
-            pass
-
-    def test_docstring(self):
-        """test"""
-        self.assertTrue(len(BaseModel.__doc__) > 1)
-        self.assertTrue(len(BaseModel.__init__.__doc__) > 1)
-        self.assertTrue(len(BaseModel.__str__.__doc__) > 1)
-        self.assertTrue(len(BaseModel.save.__doc__) > 1)
-        self.assertTrue(len(BaseModel.to_dict.__doc__) > 1)
-
-    def test_isinstance(self):
-        """"Test"""
+    def test_init(self):
+        """Test for instantiation"""
         obj = BaseModel()
-        self.assertIsInstance(obj, BaseModel)
-
-    def test_id_v4_uuid(self):
-        """Test """
-        obj = BaseModel()
-        test_uuid = uuid.UUID(obj.id, version=4)
-        self.assertEqual(str(test_uuid), obj.id, "Error: Different version")
-
-    def test_args(self):
-        """test"""
-        b = BaseModel(8)
-        self.assertEqual(type(b).__name__, "BaseModel")
-        self.assertFalse(hasattr(b, "8"))
+        self.assertEqual(type(obj.__name__, "BaseModel")
+        self.assertEqual(obj.created_at, obj.updated_at)
+        obj_b = BaseModel()
+        self.assertNotEqual(obj.id, obj_b.id)
 
     def test_str(self):
-        """test"""
+        """test for __str__ method"""
         b = BaseModel()
         printb = b.__str__()
         self.assertEqual(printb,
                          "[BaseModel] ({}) {}".format(b.id, b.__dict__))
 
     def test_save(self):
-        """Test"""
+        """Test for save method"""
         obj = BaseModel()
         obj.save()
         key = "BaseModel.{}".format(obj.id)
@@ -68,11 +35,8 @@ class Test_BaseModel(unittest.TestCase):
         self.assertNotEqual(obj.created_at, obj.updated_at)
 
     def test_to_dict(self):
-        """Test"""
+        """Test for to_dict method"""
         obj = BaseModel()
-        new_dict = obj.__dict__.copy()
-        new_dict["__class__"] = obj.__class__.__name__
-        new_dict["created_at"] = new_dict["created_at"].isoformat()
-        new_dict["updated_at"] = new_dict["updated_at"].isoformat()
-        comparing = obj.to_dict()
-        self.assertDictEqual(new_dict, comparing)
+        keys = ['__class__', 'id', 'created_at', 'updated_at']
+        test_dict = obj.to_dict()
+        sert.assertCountEqual(keys, test_dict)

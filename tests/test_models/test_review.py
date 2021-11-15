@@ -3,30 +3,10 @@
 
 import unittest
 from models.review import Review
-import os
 
 
-ilass Test_Place(unittest.TestCase):
-    """"Class Review -Unittest """
-
-    def test_setUp(self):
-        """SetUps tests"""
-        pass
-
-    def test_tearDown(self):
-        """"Restart tests"""
-        try:
-            os.remove("file.json")
-        except Exception:
-            pass
-
-    def test_docstring(self):
-        """Checks if docstring exists"""
-        self.assertTrue(len(Review.__doc__) > 1)
-        self.assertTrue(len(Review.__init__.__doc__) > 1)
-        self.assertTrue(len(Review.__str__.__doc__) > 1)
-        self.assertTrue(len(Review.save.__doc__) > 1)
-        self.assertTrue(len(Review.to_dict.__doc__) > 1)
+class test_review(unittest.TestCase):
+    """"Unittest for Class Review"""
 
     def test_isinstance(self):
         """"Test if is an instance of the class"""
