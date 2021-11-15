@@ -17,9 +17,9 @@ class Test_City(unittest.TestCase):
         """test"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
-    
+
     def test_docstring(self):
         """test"""
         self.assertTrue(len(City.__doc__) > 1)

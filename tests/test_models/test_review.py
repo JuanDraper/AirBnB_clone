@@ -6,7 +6,7 @@ from models.review import Review
 import os
 
 
-class Test_Place(unittest.TestCase):
+ilass Test_Place(unittest.TestCase):
     """"Class Review -Unittest """
 
     def test_setUp(self):
@@ -17,7 +17,7 @@ class Test_Place(unittest.TestCase):
         """"Restart tests"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
     def test_docstring(self):

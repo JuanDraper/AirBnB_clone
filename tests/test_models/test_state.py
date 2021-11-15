@@ -18,10 +18,10 @@ class Test_State(unittest.TestCase):
         """"Restart tests"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
-   def test_docstring(self):
+    def test_docstring(self):
         """Checks if docstring exists"""
         self.assertTrue(len(State.__doc__) > 1)
         self.assertTrue(len(State.__init__.__doc__) > 1)

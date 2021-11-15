@@ -17,7 +17,7 @@ class Test_Amenity(unittest.TestCase):
         """"tests"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
     def test_docstring(self):
@@ -38,6 +38,3 @@ class Test_Amenity(unittest.TestCase):
         b = Amenity(8)
         self.assertEqual(type(b).__name__, "Amenity")
         self.assertFalse(hasattr(b, "8"))
-
-    
-

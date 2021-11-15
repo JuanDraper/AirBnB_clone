@@ -15,14 +15,14 @@ class Test_BaseModel(unittest.TestCase):
         """ tests"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
     def test_tearDown(self):
         """" tests"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
     def test_docstring(self):

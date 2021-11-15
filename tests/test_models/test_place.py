@@ -17,7 +17,7 @@ class Test_Place(unittest.TestCase):
         """" tests"""
         try:
             os.remove("file.json")
-        except:
+        except Exception:
             pass
 
     def test_docstring(self):

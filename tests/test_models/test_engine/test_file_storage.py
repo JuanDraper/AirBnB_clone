@@ -17,7 +17,7 @@ class Test_File_Storage(unittest.TestCase):
         """SetUps tests"""
         self.storage = FileStorage()
 
-   def test_docstring(self):
+    def test_docstring(self):
         """Checks if docstring exists"""
         self.assertTrue(len(FileStorage.__doc__) > 1)
         self.assertTrue(len(FileStorage.all.__doc__) > 1)
