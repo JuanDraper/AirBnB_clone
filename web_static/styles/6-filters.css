@@ -21,6 +21,7 @@ button {
 	margin: 11px 30px 0px 0px;
 }
 button:hover {
+    cursor: pointer;
 	opacity: 90%;
 }
 .locations, .amenities {
@@ -29,6 +30,7 @@ button:hover {
 	float: left;
 	margin: 0px;
 	padding-left: 50px;
+    cursor: pointer;
 }
 .locations {
 	border-right: 1px solid #DDDDDD;
@@ -49,6 +51,7 @@ h4 {
 	margin-left: -51px;
 	margin-top: 19px;
 	visibility: hidden;
+    cursor: pointer;
 }
 ul {	
 	list-style-type: none;
@@ -61,4 +64,5 @@ h2 {
 }
 .locations:hover .popover, .amenities:hover .popover {
 	visibility: visible;
+    cursor: pointer;
 }
