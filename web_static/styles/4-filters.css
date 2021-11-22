@@ -20,5 +20,6 @@ button {
 	float: right;
 }
 button:hover {
+    cursor: pointer;
 	opacity: 90%;
 }
